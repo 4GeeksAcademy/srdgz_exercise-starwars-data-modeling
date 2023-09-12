@@ -64,10 +64,10 @@ class Favorites(Base):
     characters_id = Column(Integer, ForeignKey('characters.id'))
     planets_id = Column(Integer, ForeignKey('planets.id'))
     starships_id = Column(Integer, ForeignKey('starships.id'))
-    user = relationship('User')
-    character = relationship('Characters')
-    planet = relationship('Planets')
-    starships = relationship('Starships')
+    user = relationship('User', backref='favorites')
+    character = relationship('Characters', backref='favorites')
+    planet = relationship('Planets' backref='favorites')
+    starships = relationship('Starships', backref='favorites')
 
     def to_dict(self):
         return {}
